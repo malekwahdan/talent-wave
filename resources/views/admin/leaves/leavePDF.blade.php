@@ -58,9 +58,9 @@
                     {{ $leave->reason ?? 'N/A' }}
                 </td>
                 <td>
-                    @if ($leave->status == 'approved')
+                    @if ($leave->status == 'Approved')
                         <span class="badge bg-success">Approved</span>
-                    @elseif($leave->status == 'pending')
+                    @elseif($leave->status == 'Pending')
                         <span class="badge bg-warning">Pending</span>
                     @else
                         <span class="badge bg-danger">Rejected</span>

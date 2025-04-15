@@ -24,7 +24,7 @@ class HRMiddleware
         ) {
             return $next($request);
         } else {
-            abort(404);  
+            abort(404);  // Redirect to the default 404 page
         }
     }
 }

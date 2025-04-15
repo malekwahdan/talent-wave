@@ -3,10 +3,10 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+
 class Attendance extends Model
 {
-    
+    use HasFactory;
 
     protected $fillable = [
         'user_id',
@@ -16,6 +16,8 @@ class Attendance extends Model
         'total_hours',
         'status',
         'notes',
+        'overtime_hours',
+        'shortage_hours'
     ];
 
     protected $casts = [

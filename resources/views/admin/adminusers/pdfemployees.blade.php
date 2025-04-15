@@ -38,7 +38,7 @@
                 <th>Department</th>
                 <th>Salary</th>
                 <th>Hire Date</th>
-
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
@@ -59,7 +59,13 @@
                 <td>{{ $user->department->name ?? 'N/A' }}</td>
                 <td>{{ $user->salary ? '$' . number_format($user->salary, 2) : 'N/A' }}</td>
                 <td>{{ $user->hire_date ? \Carbon\Carbon::parse($user->hire_date)->format('M d, Y') : 'N/A' }}</td>
-
+                <td>
+                    @if($user->deleted_at)
+                    <span style="color:#e74c3c;">Inactive</span>
+                    @else
+                    <span style="color:#2ecc71;">Active</span>
+                    @endif
+                </td>
             </tr>
             @endforeach
         </tbody>

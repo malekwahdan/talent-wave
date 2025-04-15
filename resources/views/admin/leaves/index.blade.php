@@ -11,32 +11,32 @@
       <div class="d-flex align-items-center justify-content-between mb-4">
 
 
-      <div id="authorsSearchContainer">
-  <div id="authorsFilterGroup">
-    <!-- <form method="GET" action="{{ route('all_users') }}" id="authorsSearchForm" class="authorsForm">
-      <div id="authorsSearchWrapper">
-        <input name="search" type="text" id="authorsSearchInput" placeholder="Search authors...">
-        <button type="submit" id="authorsSearchButton">
+        <div id="employeesSearchContainer">
+          <div id="employeesFilterGroup">
+            <!-- <form method="GET" action="{{ route('all_users') }}" id="employeesSearchForm" class="employeesForm">
+      <div id="employeesSearchWrapper">
+        <input name="search" type="text" id="employeesSearchInput" placeholder="Search employees...">
+        <button type="submit" id="employeesSearchButton">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="#777" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
           </svg>
         </button>
       </div>
     </form> -->
-    
-    <!-- Department Filter Form -->
-    <form id="authorsDepartmentForm" class="authorsForm">
-      <select name="department_id" id="authorsDepartmentFilter" onchange="this.form.submit()">
-        <option selected>Leave Status</option>
-        <option value="pending">Pending</option>
-        <option value="rejected">Rejected</option>
-        <option value="approved">Approved</option>
-      </select>
-    </form>
-  </div>
-</div>
+
+            <!-- Department Filter Form -->
+            <form id="employeesDepartmentForm" class="employeesForm">
+              <select name="department_id" id="employeesDepartmentFilter" onchange="this.form.submit()">
+                <option selected>Leave Status</option>
+                <option value="Pending">Pending</option>
+                <option value="Rejected">Rejected</option>
+                <option value="Approved">Approved</option>
+              </select>
+            </form>
+          </div>
+        </div>
         <div class="d-flex justify-content-between gap-2">
-          <a href="{{ route('leaves.download.pdf') }}" class="btn btn-primary">
+          <a href="{{ route('leaves.download.pdf') }}" class="btn btn-success">
             <i class="fas fa-file-pdf"></i> Export to PDF
           </a>
 
@@ -45,7 +45,7 @@
       <div class="card my-4">
         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
           <div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3">
-            <h6 class="text-white text-capitalize ps-3">employees table</h6>
+            <h1 class="text-white text-capitalize ps-3">employees table</h1>
           </div>
         </div>
         <div class="card-body px-0 pb-2">
@@ -89,19 +89,19 @@
                     <p class="text-xs font-weight-bold mb-0">{{ $leave->reason ?? 'N/A' }}</p>
                   </td>
                   <td class="align-middle text-center">
-                    <p class="text-xs font-weight-bold mb-0">@if ($leave->status == 'approved')
-    <span class="badge bg-success">Approved</span>
-@elseif($leave->status == 'pending')
-<span class="badge bg-warning">Pending</span>
-@else
-    <span class="badge bg-danger">Rejected</span>
-    @if ($leave->rejection_reason)
-        <small class="d-block text-muted mt-1">{{ $leave->rejection_reason }}</small>
-    @endif
-</p>  <!-- This p tag is opened but not properly closed in the condition -->
-@endif  
-                                        </p>
-                    </td>
+                    <p class="text-xs font-weight-bold mb-0">@if ($leave->status == 'Approved')
+                      <span class="badge bg-success">Approved</span>
+                      @elseif($leave->status == 'Pending')
+                      <span class="badge bg-warning">Pending</span>
+                      @else
+                      <span class="badge bg-danger">Rejected</span>
+                      @if ($leave->rejection_reason)
+                      <small class="d-block text-muted mt-1">{{ $leave->rejection_reason }}</small>
+                      @endif
+                    </p> <!-- This p tag is opened but not properly closed in the condition -->
+                    @endif
+                    </p>
+                  </td>
                   <td class="align-middle text-center">
                     <div class="d-flex justify-content-center gap-2">
                       <form method="POST" action="{{ route('admin.leaves.approve', $leave) }}">

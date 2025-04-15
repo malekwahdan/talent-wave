@@ -19,7 +19,7 @@
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('assets/css/material-dashboard.css') }}?v=3.2.0" rel="stylesheet" />
 
-    @vite(['resources/sass/app.scss', 'resources/js/app.js','resources/css/material-dashboard.css','resources/css/show.css','resources/css/material-dashboard.min.css','resources/css/material-dashboard.map.css','resources/css/main.css','resources/css/material-dashboard.css','resources/js/modal.js','resources/css/show.css'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js','resources/css/material-dashboard.css','resources/css/show.css'])
 </head>
 
 <body class="g-sidenav-show bg-gray-200">

@@ -2,21 +2,26 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Report extends Model
 {
+    use HasFactory;
     protected $fillable = [
-        'name', 'description', 'type', 'parameters', 
-        'created_by', 'file_path'
+        'name',
+        'description',
+        'type',
+        'parameters',
+        'created_by',
+        'file_path',
     ];
 
     protected $casts = [
-        'parameters' => 'array'
+        'parameters' => 'array',
     ];
 
-    public function admin(): BelongsTo
+    public function admin()
     {
         return $this->belongsTo(Admin::class, 'created_by');
     }
